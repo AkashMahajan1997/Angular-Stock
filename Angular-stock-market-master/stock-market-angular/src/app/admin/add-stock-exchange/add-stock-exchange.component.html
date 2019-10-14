@@ -1,0 +1,75 @@
+
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+   
+    <title>Admin | Stock Marketing</title>
+   
+</head>
+
+<body class="bg-info">
+    <section class="container bg-info">
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card shadow">
+                    <p class="h4 card-header">Add New Stock Exchange</p>
+                    <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+                    <div class="card-body bg-light">
+                        <p class="card-text h6">Please fill the details:</p>
+                       <div class="row">
+                           <div class="col-md-3">Stock Exchange Name :</div>
+                           <div class="col-md-9"><input type="text" class="form-control" formControlName="stockName" [ngClass]="{ 'is-invalid': submitted && f.stockName.errors }" >
+                            <div *ngIf="submitted && f.stockName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.stockName.errors.required">Stock exchange name  is required</div>
+                                    </div>
+                                </div>
+                        </div>
+                       <br>
+                       <div class="row">
+                            <div class="col-md-3">About Stock Exchange :</div>
+                            <div class="col-md-9"><textarea class="form-control" formControlName="aboutStock" [ngClass]="{ 'is-invalid': submitted && f.aboutStock.errors }"></textarea>
+                                <div *ngIf="submitted && f.aboutStock.errors" class="invalid-feedback">
+                                        <div *ngIf="f.aboutStock.errors.required">aboutStock  is required</div>
+                                        </div>
+                                    </div>
+                            </div>
+                        
+                        <br>
+                        <div class="row">
+                                <div class="col-md-3">Address :</div>
+                                <div class="col-md-9"><textarea class="form-control" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+                                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                            <div *ngIf="f.address.errors.required">address is required</div>
+                                            </div>
+                                        </div>
+                                </div>
+                            
+                            <br>
+                        <div class="row">
+                            <div  class="col-md-3"></div>
+                            <div  class="col-md-9">
+                                 <button type="reset" class="btn btn-danger" >Reset</button>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+                                <button class="btn btn-success" type ="submit">Submit</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   
+</body>
+
+</html>

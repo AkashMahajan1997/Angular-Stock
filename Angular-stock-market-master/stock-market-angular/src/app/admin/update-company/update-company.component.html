@@ -1,0 +1,129 @@
+
+
+<html>
+        
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+           
+            <title>Admin | Stock Marketing</title>
+        
+        </head>
+        
+        <body class="bg-light">
+                
+            <section class="container">
+                <div class="row mt-5">
+                    <div class="col">
+                        <div class="card shadow">
+                            <p class="h4 card-header">Update Company</p>
+                           <!-- <p *ngIf="isValidFormSubmitted" class="success">
+                                    Form submitted successfully.
+                                </p> -->
+                            <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                            <div class="card-body bg-light">
+                                <p class="card-text h6">Please fill the details:</p>
+                                
+                                <div class="row">
+                                    <div class="col-md-3">Company Name :</div>
+                                    <div class="col-md-9"><input type="text" class="form-control" formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.companyName.errors.required">Company name  is required</div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-3">Turnover in INR :</div>
+                                    <div class="col-md-9"><input type="number" class="form-control" formControlName="turnover" [ngClass]="{ 'is-invalid': submitted && f.turnover.errors }">
+                                    <div *ngIf="submitted && f.turnover.errors" class="invalid-feedback">
+                                            <div *ngIf="f.turnover.errors.required">turnover is required</div>
+                                            </div>
+                                            </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-3">CEO :</div>
+                                    <div class="col-md-9"><input type="text" class="form-control" formControlName="CEO" [ngClass]="{ 'is-invalid': submitted && f.CEO.errors }" >
+                                    <div *ngIf="submitted && f.CEO.errors" class="invalid-feedback">
+                                            <div *ngIf="f.CEO.errors.required">CEO is required</div>
+                                            </div>
+                                            </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-3">Board Of Director :</div>
+                                    <div class="col-md-9"><input type="text" class="form-control" formControlName="boardOfDirector" [ngClass]="{ 'is-invalid': submitted && f.boardOfDirector.errors }">
+                                    <div *ngIf="submitted && f.boardOfDirector.errors" class="invalid-feedback">
+                                            <div *ngIf="f.boardOfDirector.errors.required">boardOfDirector is required</div>
+                                            </div>
+                                            </div>
+        
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-3">About Company :</div>
+                                    <div class="col-md-9"><textarea class="form-control" formControlName="aboutCompany"></textarea></div>
+                                </div>
+                                <br>
+        
+                                <div class="row">
+                                    <div class="col-md-3">Stock Exchange</div>
+                                    <div class="col-md-9">
+                                        <select class="form-control" id="inputGroupSelect01" formControlName="stockExchange" [ngClass]="{ 'is-invalid': submitted && f.stockExchange.errors }">
+                                            <option [ngValue]="null" disabled>Choose your stockExchange</option>
+                                            <option *ngFor="let stockExchange of allExchanges" [ngValue]="stockExchange" (change)="changeStock($event)">
+                                                    {{stockExchange}}
+                                                    <div *ngIf="submitted && f.stockExchange.errors" class="invalid-feedback">
+                                                            <div *ngIf="f.stockExchange.errors.required">stockExchange is required</div>
+                                                            </div>
+                                                </option>
+                                               
+                                        </select>
+                                    </div>
+                                </div>
+                               <br>
+                                <div  class="row">
+                                    <div  class="col-md-3"> Select Sector </div>
+                                    <div  class="col-md-9"> <select class="form-control" id="inputGroupSelect02" formControlName="sector" [ngClass]="{ 'is-invalid': submitted && f.sector.errors }">
+                                        <option [ngValue]="null" disabled>Choose your sector</option>
+                                       
+                                        <option *ngFor="let sect of allSector" [ngValue]="sect" (change)="changeSector($event)">
+                                                {{ sect}}
+                                            </option>
+                                            <div *ngIf="submitted && f.sector.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.sector.errors.required">Sector is required</div>
+                                                    </div> 
+                                    </select>
+                                    
+                                </div>
+                                </div>
+                            
+                                </div>
+                                
+                                <div  class="row">
+                                    
+                                    <div  class="col-md-3"></div>
+                                    <div  class="col-md-9">
+                                    <button type="button" class="btn btn-danger" (click)="resetForm(addForm)">Reset</button>
+                                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                     <button class="btn btn-success" type="submit ">Update</button>
+                                    </div>
+                                </div>
+                           
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        
+        
+        </body>
+        </html>
+        

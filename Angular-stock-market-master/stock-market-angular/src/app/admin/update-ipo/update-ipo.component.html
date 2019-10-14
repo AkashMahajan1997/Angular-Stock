@@ -1,0 +1,95 @@
+<body class="bg-info">
+        
+<section class="container">
+<div class="row mt-5">
+    <div class="col">
+        <div class="card shadow">
+            <p class="h4 card-header">Add IPO</p>
+            <form [formGroup]="ipoForm" (ngSubmit)="onSubmit()">
+            <div class="card-body bg-light">
+                <p class="card-text h6">Please fill the details:</p>
+                <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Company Name</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
+                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                            <div *ngIf="f.companyName.errors.required">Company name  is required</div>
+                            </div>
+                        </div>
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div>
+                    <select class="form-control" id="inputGroupSelect01" formControlName="stockExchange" [ngClass]="{ 'is-invalid': submitted && f.stockExchange.errors }">
+                            <option [ngValue]="null" disabled>Choose your stockExchange</option>
+                            <option *ngFor="let stockExchange of allExchanges" [ngValue]="stockExchange" (change)="changeStock($event)">
+                                    {{stockExchange}}
+                                    
+                                </option>
+                                <div *ngIf="submitted && f.stockExchange.errors" class="invalid-feedback">
+                                        <div *ngIf="f.stockExchange.errors.required">stockExchange is required</div>
+                                        </div>
+                               
+                        </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> Price/Share in Rs.</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                            <div *ngIf="f.price.errors.required">price is required</div>
+                            </div>
+                        
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Total no. of Shares</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="noOfShares" [ngClass]="{ 'is-invalid': submitted && f.noOfShares.errors }"/>
+                    <div *ngIf="submitted && f.noOfShares.errors" class="invalid-feedback">
+                            <div *ngIf="f.price.noOfShares.required">noOfShares is required</div>
+                            </div>
+                        </div>
+               
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Address</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                            <div *ngIf="f.price.address.required">address is required</div>
+                            </div>
+
+                        </div>
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Open date time</span>
+                    </div>
+                    <input type="date" class="form-control" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }"/>
+                    <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                            <div *ngIf="f.price.date.required">date is required</div>
+                            </div>
+                       
+                </div>
+                <button type="reset" class="btn btn-danger" (click)="resetForm(ipoForm)">Reset</button>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <button class="btn btn-success" type="submit">submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+</body>
